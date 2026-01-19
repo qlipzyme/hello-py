@@ -1,0 +1,19 @@
+name: My Python Runner
+
+on:
+  workflow_dispatch: # This adds a button so you can run it manually
+
+jobs:
+  run-my-code:
+    runs-on: ubuntu-latest # Borrow a Linux computer
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # Copy your files to the robot computer
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Execute script
+        run: python hello.py
